@@ -1,0 +1,95 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.train</groupId>
+  <artifactId>hello-app</artifactId>
+  <packaging>jar</packaging>
+  <version>2.0-SNAPSHOT</version>
+ 
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+	<dependency>
+		<groupId>org.apache.commons</groupId>
+		<artifactId>commons-lang3</artifactId>
+		<version>3.1</version>
+	</dependency>    
+  </dependencies>
+	<!---<version>1.0-SNAPSHOT</version>	-->
+	<properties>
+	        <jdk.version>1.8</jdk.version>
+		<maven.compile.deprecation>off</maven.compile.deprecation>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<maven-compiler-plugin>2.3.2</maven-compiler-plugin>
+		<maven-site-plugin.version>3.3</maven-site-plugin.version>
+		<sonar-maven-plugin.version>3.0.2</sonar-maven-plugin.version>
+
+	</properties>	
+	
+
+
+	<build>
+		<pluginManagement>
+		      <plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-site-plugin</artifactId>
+					<version>3.7</version>
+					<configuration>
+						<locales>zh_CN</locales>
+					</configuration>					
+				</plugin>	
+		      </plugins>
+		</pluginManagement>		
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-site-plugin</artifactId>
+				<configuration>
+					<locales>zh_CN</locales>
+				</configuration>
+			</plugin>		
+			
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>${maven-compiler-plugin}</version>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+					<fork>true</fork>
+					<encoding>${project.build.sourceEncoding}</encoding>
+					<meminitial>64</meminitial>
+					<maxmem>128</maxmem>
+					<executable>${JAVA_HOME}/bin/javac</executable>
+					<compilerVersion>${jdk.version}</compilerVersion>
+			                <compilerArguments>
+			                        <verbose />
+			                         <bootclasspath>${java.home}/lib/rt.jar;${java.home}/lib/jce.jar</bootclasspath>
+			                </compilerArguments> 
+				</configuration>
+			</plugin>         
+		</plugins>
+	</build>
+	<reporting>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>2.10.4</version>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-project-info-reports-plugin</artifactId>
+				<version>2.9</version>
+			
+			</plugin>
+		</plugins>
+	</reporting>  
+</project>
